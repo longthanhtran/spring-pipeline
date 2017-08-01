@@ -23,7 +23,7 @@ node {
       sh "docker run -e DB_URI=$DB longthanhtran/spring-pipeline:${env.BUILD_NUMBER}"
 
       // Run tests using Maven
-      //dir ('webapp') {
+      //dir ('.') {
       //  sh 'mvn exec:java -DskipTests'
       //}
     } catch (error) {
@@ -36,7 +36,7 @@ node {
 
   stage('Run Tests') {
     try {
-      dir('webapp') {
+      dir('.') {
         sh "mvn test"
         docker.build("longthanhtran/spring-pipeline:${env.BUILD_NUMBER}").push()
       }
