@@ -1,4 +1,4 @@
-FROM openjdk:u141-jdk
+FROM openjdk:8u141-jdk
 
 COPY target/pipeline-0.0.1-SNAPSHOT.jar /opt/pipeline-0.0.1-SNAPSHOT.jar
 
