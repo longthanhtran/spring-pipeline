@@ -2,13 +2,13 @@ node {
   checkout scm
   env.PATH = "${tool 'M3'}/bin:${env.PATH}"
   stage('Package') {
-    dir('webapp') {
+    dir('.') {
       sh 'mvn clean package -DskipTests'
     }
   }
 
   stage('Create Docker Image') {
-    dir('webapp') {
+    dir('.') {
       docker.build("longthanhtran/spring-pipeline:${env.BUILD_NUMBER}")
     }
   }
